@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -470,7 +471,7 @@
     <p class="noteSign">— with all my heart</p>
   </div>
 
-  <footer>Made with 💗 · You Love2</footer>
+  <footer>Made with 💗 · photos via Pexels</footer>
 </main>
 
 <button id="musicToggle" title="Play cute music">🎵</button>
@@ -487,15 +488,15 @@ const LOVE_NOTE      = document.getElementById('loveNote').innerHTML; // edit th
 // Your 10 photos. Swap any of these URLs for your own uploaded photos
 // (e.g. host them on GitHub/Imgur and paste the direct image link here).
 const PHOTOS = [
-  "https://images.pexels.com/photos/11741360/pexels-photo-11741360.jpeg?auto=compress&cs=tinysrgb&w=800",
-  "https://images.pexels.com/photos/15366917/pexels-photo-15366917.jpeg?auto=compress&cs=tinysrgb&w=800",
-  "https://images.pexels.com/photos/13692621/pexels-photo-13692621.jpeg?auto=compress&cs=tinysrgb&w=800",
-  "https://images.pexels.com/photos/20705182/pexels-photo-20705182.jpeg?auto=compress&cs=tinysrgb&w=800",
-  "https://images.pexels.com/photos/12745588/pexels-photo-12745588.jpeg?auto=compress&cs=tinysrgb&w=800",
-  "https://images.pexels.com/photos/15568941/pexels-photo-15568941.jpeg?auto=compress&cs=tinysrgb&w=800",
-  "https://images.pexels.com/photos/20298703/pexels-photo-20298703.jpeg?auto=compress&cs=tinysrgb&w=800",
-  "https://images.pexels.com/photos/4127592/pexels-photo-4127592.jpeg?auto=compress&cs=tinysrgb&w=800",
-  "https://images.pexels.com/photos/9371734/pexels-photo-9371734.jpeg?auto=compress&cs=tinysrgb&w=800",
+  "https://raw.githubusercontent.com/reyrosal123/love2/main/9968ebe3-120b-45a1-8c64-efd73c0ba585.jpg",
+  "https://raw.githubusercontent.com/reyrosal123/love2/main/5bbe96e7-b9c5-43d4-8694-fd5bfbfa3a61.jpg",
+  "https://raw.githubusercontent.com/reyrosal123/love2/main/Screenshot%202026-07-08%20081332.png",
+  "https://raw.githubusercontent.com/reyrosal123/love2/main/Screenshot%202026-07-08%20081400.png",
+  "https://raw.githubusercontent.com/reyrosal123/love2/main/ccddf04a-345b-4c12-92ef-71e46086db15.jpg",
+  "https://raw.githubusercontent.com/reyrosal123/love2/main/d1abf488-7661-4a94-84b0-986d53d3d567.jpg",
+  "https://raw.githubusercontent.com/reyrosal123/love2/main/d2df72d1-f0f8-408c-98da-2331bec1d63e.jpg",
+  "https://raw.githubusercontent.com/reyrosal123/love2/main/ddd31e71-506e-4dff-948f-e01ba6c52f7b.jpg",
+  "https://raw.githubusercontent.com/reyrosal123/love2/main/e44240ef-2b33-4b66-851c-155d4dba4977.jpg",
   "https://images.pexels.com/photos/8685288/pexels-photo-8685288.jpeg?auto=compress&cs=tinysrgb&w=800"
 ];
 /* ========================================================= */
@@ -575,22 +576,63 @@ const MusicBox = (function(){
   let ctx = null;
   let playing = false;
   let stopFlag = false;
+  let delayNode, feedbackGain, delayWet;
 
-  const noteFreq = {
-    C4:261.63, D4:293.66, E4:329.63, F4:349.23, G4:392.00,
-    A4:440.00, B4:493.88, C5:523.25, D5:587.33, E5:659.25
-  };
+  function noteToFreq(note){
+    const letters = {C:0,'C#':1,D:2,'D#':3,E:4,F:5,'F#':6,G:7,'G#':8,A:9,'A#':10,B:11};
+    const m = note.match(/^([A-G]#?)(\d)$/);
+    const midi = (parseInt(m[2]) + 1) * 12 + letters[m[1]];
+    return 440 * Math.pow(2, (midi - 69) / 12);
+  }
 
-  // a gentle little music-box melody, [note, beatLength]
-  const melody = [
-    ['E4',0.5],['G4',0.5],['C5',0.75],['B4',0.5],['G4',0.5],['E4',0.75],
-    ['F4',0.5],['A4',0.5],['C5',1.0],
-    ['D5',0.5],['C5',0.5],['B4',0.5],['G4',0.5],['A4',1.0],
-    ['G4',0.5],['E4',0.5],['C4',1.25]
+  function setupAudioGraph(){
+    delayNode = ctx.createDelay();
+    delayNode.delayTime.value = 0.3;
+    feedbackGain = ctx.createGain();
+    feedbackGain.gain.value = 0.22;
+    delayWet = ctx.createGain();
+    delayWet.gain.value = 0.22;
+    delayNode.connect(feedbackGain).connect(delayNode);
+    delayNode.connect(delayWet).connect(ctx.destination);
+  }
+
+  // Soft pop-ballad chord progression: C - G - Am - F, 2s each (8s loop)
+  const chords = [
+    ['C3','E3','G3'],
+    ['G2','B2','D3'],
+    ['A2','C3','E3'],
+    ['F2','A2','C3']
   ];
-  const loopLength = melody.reduce((s,n)=>s+n[1],0) * 0.5; // seconds (tempo factor below)
+  const chordDur = 2.0;
 
-  function playNote(freq, startTime, dur){
+  // Melody dances over the progression, in sync, 0.5s per note (matches 8s loop)
+  const melody = [
+    'E5','G5','C6','G5',
+    'D5','G5','B5','G5',
+    'C5','E5','A5','E5',
+    'A5','F5','C6','A5'
+  ];
+  const noteDur = 0.5;
+  const loopLength = chords.length * chordDur; // 8 seconds
+
+  function playChord(notes, startTime, dur){
+    notes.forEach((n, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.value = noteToFreq(n);
+      const peak = i === 0 ? 0.05 : 0.035;
+      gain.gain.setValueAtTime(0, startTime);
+      gain.gain.linearRampToValueAtTime(peak, startTime + 0.4);
+      gain.gain.setValueAtTime(peak, startTime + dur - 0.5);
+      gain.gain.linearRampToValueAtTime(0.0001, startTime + dur);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(startTime); osc.stop(startTime + dur + 0.05);
+    });
+  }
+
+  function playMelodyNote(note, startTime, dur){
+    const freq = noteToFreq(note);
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
     osc.type = 'sine';
@@ -598,18 +640,20 @@ const MusicBox = (function(){
 
     const osc2 = ctx.createOscillator();
     osc2.type = 'triangle';
-    osc2.frequency.value = freq / 2;
+    osc2.frequency.value = freq * 2;
     const gain2 = ctx.createGain();
 
     gain.gain.setValueAtTime(0, startTime);
-    gain.gain.linearRampToValueAtTime(0.18, startTime + 0.02);
+    gain.gain.linearRampToValueAtTime(0.16, startTime + 0.015);
     gain.gain.exponentialRampToValueAtTime(0.0001, startTime + dur);
 
     gain2.gain.setValueAtTime(0, startTime);
-    gain2.gain.linearRampToValueAtTime(0.05, startTime + 0.02);
-    gain2.gain.exponentialRampToValueAtTime(0.0001, startTime + dur);
+    gain2.gain.linearRampToValueAtTime(0.03, startTime + 0.015);
+    gain2.gain.exponentialRampToValueAtTime(0.0001, startTime + dur * 0.6);
 
-    osc.connect(gain).connect(ctx.destination);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    gain.connect(delayNode);
     osc2.connect(gain2).connect(ctx.destination);
 
     osc.start(startTime); osc.stop(startTime + dur + 0.05);
@@ -618,17 +662,24 @@ const MusicBox = (function(){
 
   function scheduleLoop(){
     if(stopFlag) return;
-    const tempo = 0.5; // seconds per beat
-    let t = ctx.currentTime + 0.05;
-    melody.forEach(([note, beats]) => {
-      playNote(noteFreq[note], t, beats * tempo * 0.92);
-      t += beats * tempo;
+    const base = ctx.currentTime + 0.05;
+
+    chords.forEach((chordNotes, i) => {
+      playChord(chordNotes, base + i * chordDur, chordDur);
     });
+
+    melody.forEach((note, i) => {
+      playMelodyNote(note, base + i * noteDur, noteDur * 0.95);
+    });
+
     setTimeout(scheduleLoop, loopLength * 1000);
   }
 
   function toggle(){
-    if(!ctx){ ctx = new (window.AudioContext || window.webkitAudioContext)(); }
+    if(!ctx){
+      ctx = new (window.AudioContext || window.webkitAudioContext)();
+      setupAudioGraph();
+    }
     if(ctx.state === 'suspended'){ ctx.resume(); }
 
     if(!playing){
