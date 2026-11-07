@@ -2,1541 +2,328 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2 Years of Us — Rey & Ira</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2 Years of Us 💗 Rey &amp; Ira</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --midnight:#0d1137;
-    --deep-night:#070a1f;
-    --navy:#161b3d;
-    --slate:#9aa3c9;
-    --gold:#ffd93d;
-    --soft-gold:#ffe770;
-    --rose:#ff6b9d;
-    --soft-rose:#ffb3c9;
-    --blush:#ffe0ec;
-    --cream:#fff8f5;
-    --glass:rgba(255,255,255,0.05);
-    --glass-border:rgba(255,255,255,0.1);
-  }
+:root{--pink:#ff7eb6;--rose:#ff4f93;--ink:#6b3a55;--soft:#a7728c;--gold:#ffc94d}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:'Fredoka',sans-serif;color:var(--ink);background:linear-gradient(160deg,#fff0f6,#ffe4f0 40%,#f1e6ff 75%,#e6f0ff) fixed;overflow-x:hidden;min-height:100vh}
+section{padding:56px 20px;max-width:760px;margin:0 auto;text-align:center}
+h2{font-size:clamp(26px,6vw,38px);margin:2px 0 28px}
+.lab{font-family:'Caveat',cursive;font-size:24px;color:var(--rose);font-weight:700}
+.fh{position:fixed;bottom:-40px;z-index:1;pointer-events:none;animation:fl 9s linear forwards}
+@keyframes fl{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.75}100%{transform:translateY(-115vh) rotate(40deg);opacity:0}}
+.bt{position:fixed;z-index:999;pointer-events:none;animation:bt 1.1s ease-out forwards}
+@keyframes bt{to{transform:translate(var(--dx),var(--dy)) rotate(40deg) scale(.4);opacity:0}}
+@keyframes bob{50%{transform:translateY(-10px) rotate(4deg)}}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes bl{50%{opacity:0}}
 
-  *{box-sizing:border-box;margin:0;padding:0}
+/* gate */
+#gate{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;background:linear-gradient(160deg,#fff0f6,#ffe0ee 50%,#efe3ff);transition:opacity 1s,visibility 1s}
+#gate.hide{opacity:0;visibility:hidden;pointer-events:none}
+.g1{font-size:56px;display:inline-block;animation:bob 2.4s ease-in-out infinite}
+#gate h1{font-size:clamp(30px,8vw,42px);margin:6px 0 4px}
+#gate p{color:var(--soft);font-size:15px}
+.box{position:relative;width:240px;height:240px;margin:16px auto;background:rgba(255,255,255,.75);border-radius:36px;box-shadow:0 10px 30px rgba(255,79,147,.2)}
+.box svg,.box canvas{position:absolute;inset:0;width:100%;height:100%}
+.box svg{pointer-events:none;padding:26px}
+.box path{fill:rgba(255,126,182,.12);stroke:var(--pink);stroke-width:1.2;stroke-dasharray:3 3}
+.box canvas{touch-action:none;cursor:crosshair}
+#pct{font-family:'Caveat',cursive;font-size:22px;color:var(--rose);min-height:28px}
+.btn{font:600 17px 'Fredoka',sans-serif;border:0;border-radius:999px;padding:13px 32px;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--pink),var(--rose));box-shadow:0 8px 22px rgba(255,79,147,.35);transition:transform .2s}
+.btn:active{transform:scale(.94)}
+.btn.no{background:#fff;color:var(--soft);box-shadow:0 4px 14px rgba(0,0,0,.08);transition:transform .25s}
 
-  html,body{
-    background:var(--deep-night);
-    color:var(--cream);
-    font-family:'Outfit',sans-serif;
-    overflow-x:hidden;
-    min-height:100%;
-    scroll-behavior:smooth;
-  }
+/* main */
+#main{position:relative;z-index:2;opacity:0;transition:opacity 1.4s}
+#main.on{opacity:1}
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hero>*{opacity:0}
+.on .hero>*{animation:up .9s forwards;animation-delay:calc(var(--i)*.25s)}
+.hero h1{font-size:clamp(50px,14vw,92px);line-height:1;font-weight:700;background:linear-gradient(135deg,var(--rose),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;margin:8px 0}
+.nm{font-family:'Caveat',cursive;font-size:clamp(36px,10vw,56px);font-weight:700;color:var(--rose)}
+.dt{color:var(--soft);font-size:15px;margin-top:6px}
+.sp{font-size:26px;letter-spacing:8px}
+.sc{margin-top:36px;color:var(--soft);font-size:14px}
+.rv{opacity:0;transform:translateY(24px) scale(.96);transition:.7s cubic-bezier(.34,1.56,.64,1)}
+.rv.in{opacity:1;transform:none}
 
-  body{
-    background:linear-gradient(180deg,var(--deep-night) 0%,var(--midnight) 25%,#0f1433 60%,var(--deep-night) 100%);
-  }
+/* polaroids */
+.pol{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 14px}
+.pol figure{background:#fff;padding:8px 8px 6px;border-radius:6px;box-shadow:0 8px 22px rgba(255,79,147,.2);cursor:pointer;position:relative;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.pol figure:nth-child(odd){transform:rotate(-3deg)}
+.pol figure:nth-child(even){transform:rotate(2.5deg)}
+.pol figure:nth-child(3n){transform:rotate(-1deg)}
+.pol figure:last-child{grid-column:2}
+.pol figure:hover{transform:rotate(0) scale(1.08);z-index:2}
+.pol figure::before{content:"";position:absolute;top:-9px;left:50%;width:48px;height:16px;margin-left:-24px;background:rgba(255,201,77,.65);transform:rotate(-4deg)}
+.pol img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:3px;display:block}
+.pol figcaption{font-family:'Caveat',cursive;font-size:clamp(14px,3.6vw,20px);padding-top:4px;color:var(--soft);line-height:1.15}
+#lbx{position:fixed;inset:0;z-index:200;background:rgba(255,236,244,.94);display:none;align-items:center;justify-content:center;padding:24px;flex-direction:column;text-align:center}
+#lbx.show{display:flex}
+#lbx img{max-width:min(440px,100%);max-height:66vh;border:10px solid #fff;border-radius:8px;box-shadow:0 16px 40px rgba(255,79,147,.3)}
+#lbx p{font-family:'Caveat',cursive;font-size:26px;color:var(--rose);margin-top:14px}
+#lbx button{position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--rose);font-size:20px;cursor:pointer}
 
-  /* ---------- Starfield canvas ---------- */
-  #starCanvas{
-    position:fixed;
-    inset:0;
-    z-index:0;
-    pointer-events:none;
-  }
+/* video */
+.vc{max-width:520px;margin:0 auto;background:#fff;border-radius:28px;padding:12px 12px 18px;box-shadow:0 14px 36px rgba(255,79,147,.2)}
+.vc video{width:100%;border-radius:20px;display:block;aspect-ratio:16/9;object-fit:cover;background:#ffd6e7}
+.vc h3{margin-top:14px;font-size:22px}
+.vc p{font-family:'Caveat',cursive;font-size:22px;color:var(--soft)}
 
-  /* ---------- Floating hearts layer ---------- */
-  #floatLayer{
-    position:fixed;
-    inset:0;
-    z-index:1;
-    pointer-events:none;
-    overflow:hidden;
-  }
-  .floatHeart{
-    position:absolute;
-    font-size:18px;
-    opacity:0;
-    animation:floatHeartAnim 8s ease-in infinite;
-    pointer-events:none;
-  }
-  @keyframes floatHeartAnim{
-    0%{transform:translateY(100vh) scale(0.5) rotate(0deg);opacity:0}
-    10%{opacity:0.7}
-    90%{opacity:0.3}
-    100%{transform:translateY(-20vh) scale(1.2) rotate(360deg);opacity:0}
-  }
+/* timeline */
+.tl{text-align:left;position:relative;padding-left:36px}
+.tl::before{content:"";position:absolute;left:12px;top:6px;bottom:6px;width:3px;border-radius:3px;background:repeating-linear-gradient(var(--pink) 0 8px,transparent 8px 14px)}
+.ti{background:#fff;border-radius:20px;padding:14px 18px;margin-bottom:18px;box-shadow:0 6px 18px rgba(255,126,182,.18);position:relative}
+.ti::before{content:"💗";position:absolute;left:-37px;top:12px;font-size:20px}
+.ti b{display:block;color:var(--rose);font-size:17px}
+.ti span{font-size:14.5px;color:var(--soft);line-height:1.55}
 
-  /* ---------- Mouse trail sparkle ---------- */
-  .trailSparkle{
-    position:fixed;
-    pointer-events:none;
-    z-index:9999;
-    font-size:14px;
-    animation:trailFade 0.8s ease-out forwards;
-  }
-  @keyframes trailFade{
-    0%{opacity:1;transform:scale(1)}
-    100%{opacity:0;transform:scale(0.3) translateY(-20px)}
-  }
+/* letter */
+.paper{background:#fffdf8;border:2px dashed var(--pink);border-radius:26px;padding:34px 26px 26px;box-shadow:0 12px 34px rgba(255,79,147,.15);text-align:left}
+.paper h2{text-align:center;margin-bottom:18px}
+#lb{font-family:'Caveat',cursive;font-size:clamp(21px,4.8vw,25px);line-height:1.5;min-height:220px;color:#9b4a73}
+.cur{display:inline-block;width:2px;height:1em;background:var(--rose);vertical-align:middle;animation:bl .9s step-end infinite}
+.sg{text-align:right;font-family:'Caveat',cursive;font-size:22px;color:var(--rose);margin-top:16px}
 
-  /* ---------- Entrance Gate ---------- */
-  #gate{
-    position:fixed;
-    inset:0;
-    z-index:100;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:var(--deep-night);
-    transition:opacity 1.2s ease, visibility 1.2s ease;
-  }
-  #gate.hidden{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-  }
+/* ask */
+.ask p{color:var(--soft);margin-bottom:22px}
+.ask .row{display:flex;gap:18px;justify-content:center;align-items:center;min-height:90px}
+#ans{font-family:'Caveat',cursive;font-size:28px;color:var(--rose);line-height:1.3}
+footer{text-align:center;padding:30px 20px 130px;color:var(--soft);font-size:14px}
 
-  .gate-inner{
-    text-align:center;
-    padding:40px 24px;
-    max-width:440px;
-  }
-
-  .gate-moon{
-    font-size:56px;
-    margin-bottom:12px;
-    display:inline-block;
-    animation:moonBob 3s ease-in-out infinite;
-  }
-  @keyframes moonBob{
-    0%,100%{transform:translateY(0) rotate(-5deg)}
-    50%{transform:translateY(-10px) rotate(5deg)}
-  }
-
-  .gate-title{
-    font-family:'Playfair Display',serif;
-    font-size:clamp(26px,6.5vw,38px);
-    font-weight:700;
-    color:var(--cream);
-    margin-bottom:6px;
-  }
-
-  .gate-sub{
-    font-size:14px;
-    color:var(--slate);
-    margin-bottom:8px;
-    line-height:1.5;
-  }
-
-  .gate-hint{
-    font-size:12px;
-    color:var(--rose);
-    margin-bottom:28px;
-    animation:hintPulse 2s ease-in-out infinite;
-  }
-  @keyframes hintPulse{
-    0%,100%{opacity:0.5}
-    50%{opacity:1}
-  }
-
-  .heart-draw-area{
-    width:220px;
-    height:220px;
-    margin:0 auto 24px;
-    position:relative;
-    cursor:pointer;
-    border:2px dashed var(--glass-border);
-    border-radius:24px;
-    transition:border-color 0.3s ease, box-shadow 0.3s ease;
-    touch-action:none;
-    -webkit-touch-callout:none;
-    -webkit-user-select:none;
-    user-select:none;
-  }
-  .heart-draw-area:hover,.heart-draw-area.drawing{
-    border-color:rgba(255,107,157,0.4);
-    box-shadow:0 0 30px rgba(255,107,157,0.15);
-  }
-
-  .draw-hint-text{
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:13px;
-    color:var(--slate);
-    pointer-events:none;
-    flex-direction:column;
-    gap:6px;
-    transition:opacity 0.3s ease;
-  }
-  .heart-draw-area.drawing .draw-hint-text{
-    opacity:0;
-  }
-
-  #heartDrawCanvas{
-    position:absolute;
-    inset:0;
-    border-radius:24px;
-    touch-action:none;
-  }
-
-  .draw-progress{
-    position:absolute;
-    bottom:8px;
-    left:50%;
-    transform:translateX(-50%);
-    font-size:11px;
-    color:var(--rose);
-    opacity:0;
-    transition:opacity 0.3s ease;
-    pointer-events:none;
-  }
-  .heart-draw-area.drawing .draw-progress{
-    opacity:1;
-  }
-
-  .gate-btn{
-    font-family:'Outfit',sans-serif;
-    font-weight:600;
-    font-size:14px;
-    padding:12px 32px;
-    border-radius:999px;
-    border:1.5px solid var(--glass-border);
-    background:var(--glass);
-    color:var(--cream);
-    cursor:pointer;
-    transition:all 0.3s ease;
-    backdrop-filter:blur(10px);
-    touch-action:manipulation;
-    -webkit-tap-highlight-color:transparent;
-  }
-  .gate-btn:hover,.gate-btn:active{
-    background:rgba(255,107,157,0.15);
-    border-color:rgba(255,107,157,0.4);
-    transform:translateY(-2px);
-  }
-
-  /* ---------- Main Content ---------- */
-  #mainContent{
-    position:relative;
-    z-index:2;
-    opacity:0;
-    transform:translateY(40px);
-    transition:opacity 1.5s ease, transform 1.5s ease;
-  }
-  #mainContent.visible{
-    opacity:1;
-    transform:translateY(0);
-  }
-
-  /* ---------- Hero Section ---------- */
-  .hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:80px 24px;
-    position:relative;
-  }
-
-  .hero-stars{
-    font-size:18px;
-    margin-bottom:16px;
-    letter-spacing:12px;
-  }
-  .hero-stars span{
-    display:inline-block;
-    animation:starTwinkle 2s ease-in-out infinite;
-  }
-  .hero-stars span:nth-child(2){animation-delay:0.3s}
-  .hero-stars span:nth-child(3){animation-delay:0.6s}
-  .hero-stars span:nth-child(4){animation-delay:0.9s}
-  .hero-stars span:nth-child(5){animation-delay:1.2s}
-  @keyframes starTwinkle{
-    0%,100%{opacity:0.3;transform:scale(0.8)}
-    50%{opacity:1;transform:scale(1.2)}
-  }
-
-  .hero-eyebrow{
-    font-size:12px;
-    font-weight:500;
-    letter-spacing:0.4em;
-    text-transform:uppercase;
-    color:var(--gold);
-    margin-bottom:18px;
-    opacity:0;
-    transform:translateY(20px);
-  }
-  .hero-eyebrow.reveal{
-    animation:fadeUp 0.8s ease forwards;
-    animation-delay:0.3s;
-  }
-
-  .hero-title{
-    font-family:'Playfair Display',serif;
-    font-size:clamp(40px,10vw,78px);
-    font-weight:700;
-    color:var(--cream);
-    line-height:1.05;
-    margin-bottom:14px;
-    opacity:0;
-    transform:translateY(20px);
-  }
-  .hero-title.reveal{
-    animation:fadeUp 0.8s ease forwards;
-    animation-delay:0.6s;
-  }
-  .hero-title em{
-    font-style:italic;
-    background:linear-gradient(135deg,var(--gold),var(--rose));
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    background-clip:text;
-  }
-
-  .hero-names{
-    font-family:'Caveat',cursive;
-    font-size:clamp(30px,7.5vw,48px);
-    color:var(--soft-rose);
-    margin-bottom:10px;
-    opacity:0;
-    transform:translateY(20px);
-    position:relative;
-    display:inline-block;
-  }
-  .hero-names.reveal{
-    animation:fadeUp 0.8s ease forwards;
-    animation-delay:0.9s;
-  }
-  .hero-names::before,.hero-names::after{
-    content:"✨";
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    font-size:0.45em;
-    opacity:0.7;
-    animation:starTwinkle 2s ease-in-out infinite;
-  }
-  .hero-names::before{left:-40px}
-  .hero-names::after{right:-40px}
-
-  .hero-date{
-    font-size:14px;
-    color:var(--slate);
-    letter-spacing:0.06em;
-    opacity:0;
-    transform:translateY(20px);
-  }
-  .hero-date.reveal{
-    animation:fadeUp 0.8s ease forwards;
-    animation-delay:1.1s;
-  }
-
-  .scroll-hint{
-    position:absolute;
-    bottom:36px;
-    left:50%;
-    transform:translateX(-50%);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:8px;
-    color:var(--slate);
-    font-size:11px;
-    letter-spacing:0.15em;
-    text-transform:uppercase;
-    opacity:0;
-  }
-  .scroll-hint.reveal{
-    animation:fadeIn 1s ease forwards, bounceDown 2.2s ease-in-out infinite;
-    animation-delay:1.6s, 1.6s;
-  }
-  @keyframes bounceDown{
-    0%,100%{transform:translateX(-50%) translateY(0)}
-    50%{transform:translateX(-50%) translateY(10px)}
-  }
-  @keyframes fadeUp{
-    to{opacity:1;transform:translateY(0)}
-  }
-  @keyframes fadeIn{
-    to{opacity:1}
-  }
-
-  /* ---------- Cute divider ---------- */
-  .cute-divider{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:16px;
-    padding:40px 24px;
-    opacity:0;
-    transform:translateY(16px);
-    transition:all 0.8s ease;
-  }
-  .cute-divider.show{
-    opacity:1;
-    transform:translateY(0);
-  }
-  .cute-divider .line{
-    flex:1;
-    max-width:100px;
-    height:1px;
-    background:linear-gradient(90deg,transparent,var(--gold),transparent);
-    opacity:0.4;
-  }
-  .cute-divider .icon{
-    font-size:20px;
-    animation:heartBeat 1.8s ease-in-out infinite;
-  }
-  @keyframes heartBeat{
-    0%,100%{transform:scale(1)}
-    15%{transform:scale(1.25)}
-    30%{transform:scale(1)}
-    45%{transform:scale(1.15)}
-    60%{transform:scale(1)}
-  }
-
-  /* ---------- Constellation Photos ---------- */
-  .constellation-section{
-    padding:60px 24px 80px;
-    position:relative;
-  }
-
-  .section-label{
-    font-size:11px;
-    font-weight:600;
-    letter-spacing:0.35em;
-    text-transform:uppercase;
-    color:var(--gold);
-    text-align:center;
-    margin-bottom:10px;
-  }
-
-  .section-title{
-    font-family:'Playfair Display',serif;
-    font-size:clamp(24px,5.5vw,36px);
-    font-weight:700;
-    text-align:center;
-    color:var(--cream);
-    margin-bottom:50px;
-  }
-
-  .constellation-wrap{
-    position:relative;
-    max-width:640px;
-    margin:0 auto;
-    min-height:520px;
-  }
-
-  .star-node{
-    position:absolute;
-    width:68px;
-    height:68px;
-    border-radius:50%;
-    background:var(--glass);
-    border:2px solid var(--glass-border);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-    transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);
-    backdrop-filter:blur(8px);
-    overflow:hidden;
-    box-shadow:0 4px 20px rgba(0,0,0,0.2);
-  }
-  .star-node:hover,.star-node.active{
-    border-color:var(--gold);
-    box-shadow:0 0 35px rgba(255,217,61,0.25), inset 0 0 25px rgba(255,217,61,0.05);
-    transform:scale(1.2);
-    z-index:10;
-  }
-  .star-node img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:50%;
-    opacity:0.75;
-    transition:opacity 0.3s ease;
-  }
-  .star-node:hover img,.star-node.active img{
-    opacity:1;
-  }
-
-  /* Heart constellation positions (9 unique photos) */
-  .star-node:nth-child(1){left:50%;top:2%;transform:translateX(-50%);width:84px;height:84px;border-color:rgba(255,107,157,0.4)}
-  .star-node:nth-child(2){left:18%;top:16%;width:72px;height:72px;}
-  .star-node:nth-child(3){left:72%;top:14%;width:72px;height:72px;}
-  .star-node:nth-child(4){left:6%;top:36%;width:76px;height:76px;}
-  .star-node:nth-child(5){left:38%;top:34%;width:80px;height:80px;border-color:rgba(255,217,61,0.3)}
-  .star-node:nth-child(6){left:62%;top:32%;width:80px;height:80px;border-color:rgba(255,217,61,0.3)}
-  .star-node:nth-child(7){left:82%;top:38%;width:70px;height:70px;}
-  .star-node:nth-child(8){left:24%;top:58%;width:78px;height:78px;border-color:rgba(255,107,157,0.3)}
-  .star-node:nth-child(9){left:58%;top:56%;width:78px;height:78px;border-color:rgba(255,107,157,0.3)}
-
-  /* ---------- Dedicated Video Section ---------- */
-  .video-section{
-    padding:60px 24px 80px;
-    position:relative;
-  }
-
-  .video-card{
-    max-width:520px;
-    margin:0 auto;
-    background:var(--glass);
-    border:1px solid var(--glass-border);
-    border-radius:24px;
-    overflow:hidden;
-    backdrop-filter:blur(20px);
-    box-shadow:0 20px 60px rgba(0,0,0,0.3);
-    transition:transform 0.4s ease, box-shadow 0.4s ease;
-  }
-  .video-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 28px 70px rgba(0,0,0,0.4);
-  }
-
-  .video-wrapper{
-    position:relative;
-    padding-top:56.25%;
-    background:var(--navy);
-  }
-  .video-wrapper video{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
-
-  .video-caption{
-    padding:24px 28px;
-    text-align:center;
-  }
-  .video-caption h3{
-    font-family:'Playfair Display',serif;
-    font-size:22px;
-    color:var(--cream);
-    margin-bottom:6px;
-  }
-  .video-caption p{
-    font-family:'Caveat',cursive;
-    font-size:20px;
-    color:var(--soft-rose);
-  }
-
-  .video-badge{
-    position:absolute;
-    top:16px;
-    right:16px;
-    background:rgba(255,107,157,0.85);
-    color:white;
-    font-size:11px;
-    font-weight:600;
-    padding:6px 14px;
-    border-radius:999px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    backdrop-filter:blur(8px);
-    animation:badgePulse 2s ease-in-out infinite;
-  }
-  @keyframes badgePulse{
-    0%,100%{transform:scale(1)}
-    50%{transform:scale(1.08)}
-  }
-
-  /* ---------- Lightbox ---------- */
-  .lightbox{
-    position:fixed;
-    inset:0;
-    z-index:200;
-    background:rgba(7,10,31,0.93);
-    backdrop-filter:blur(20px);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:24px;
-    opacity:0;
-    transition:opacity 0.4s ease;
-  }
-  .lightbox.show{
-    display:flex;
-    opacity:1;
-  }
-  .lightbox-content{
-    max-width:480px;
-    width:100%;
-    text-align:center;
-  }
-  .lightbox img{
-    width:100%;
-    max-height:60vh;
-    object-fit:contain;
-    border-radius:20px;
-    box-shadow:0 24px 60px rgba(0,0,0,0.5);
-  }
-  .lightbox-caption{
-    margin-top:18px;
-    font-family:'Caveat',cursive;
-    font-size:22px;
-    color:var(--soft-rose);
-  }
-  .lightbox-close{
-    position:absolute;
-    top:24px;
-    right:24px;
-    width:44px;
-    height:44px;
-    border-radius:50%;
-    border:1px solid var(--glass-border);
-    background:var(--glass);
-    color:var(--cream);
-    font-size:20px;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transition:all 0.2s ease;
-  }
-  .lightbox-close:hover{
-    background:rgba(255,107,157,0.2);
-    border-color:var(--rose);
-  }
-
-  /* ---------- Timeline Section ---------- */
-  .timeline-section{
-    padding:60px 24px 80px;
-    position:relative;
-  }
-
-  .timeline{
-    max-width:560px;
-    margin:0 auto;
-    position:relative;
-  }
-  .timeline::before{
-    content:"";
-    position:absolute;
-    left:50%;
-    top:0;
-    bottom:0;
-    width:2px;
-    background:linear-gradient(180deg,transparent,var(--gold),var(--rose),var(--gold),transparent);
-    transform:translateX(-50%);
-    opacity:0.35;
-  }
-
-  .timeline-item{
-    display:flex;
-    align-items:flex-start;
-    margin-bottom:40px;
-    position:relative;
-    opacity:0;
-    transform:translateY(24px);
-    transition:all 0.7s ease;
-  }
-  .timeline-item.show{
-    opacity:1;
-    transform:translateY(0);
-  }
-  .timeline-item:nth-child(odd){flex-direction:row-reverse;text-align:right;}
-  .timeline-item:nth-child(odd) .timeline-text{padding-right:36px;padding-left:0;}
-  .timeline-item:nth-child(even) .timeline-text{padding-left:36px;}
-
-  .timeline-dot{
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    width:16px;
-    height:16px;
-    border-radius:50%;
-    background:var(--gold);
-    box-shadow:0 0 20px rgba(255,217,61,0.4), 0 0 0 4px rgba(255,217,61,0.1);
-    z-index:2;
-    margin-top:4px;
-  }
-  .timeline-item:last-child .timeline-dot{
-    background:var(--rose);
-    box-shadow:0 0 20px rgba(255,107,157,0.4), 0 0 0 4px rgba(255,107,157,0.1);
-    animation:dotGlow 2s ease-in-out infinite;
-  }
-  @keyframes dotGlow{
-    0%,100%{box-shadow:0 0 20px rgba(255,107,157,0.4), 0 0 0 4px rgba(255,107,157,0.1)}
-    50%{box-shadow:0 0 30px rgba(255,107,157,0.6), 0 0 0 6px rgba(255,107,157,0.15)}
-  }
-
-  .timeline-text{
-    width:50%;
-    padding:0 16px;
-  }
-  .timeline-month{
-    font-family:'Playfair Display',serif;
-    font-size:18px;
-    font-weight:700;
-    color:var(--gold);
-    margin-bottom:4px;
-  }
-  .timeline-desc{
-    font-size:13.5px;
-    color:var(--slate);
-    line-height:1.6;
-  }
-
-  /* ---------- Love Letter Section ---------- */
-  .letter-section{
-    padding:60px 24px 80px;
-    display:flex;
-    justify-content:center;
-  }
-
-  .letter-card{
-    max-width:520px;
-    width:100%;
-    background:var(--glass);
-    border:1px solid var(--glass-border);
-    border-radius:28px;
-    padding:44px 32px;
-    backdrop-filter:blur(20px);
-    position:relative;
-    overflow:hidden;
-    box-shadow:0 16px 50px rgba(0,0,0,0.25);
-  }
-  .letter-card::before{
-    content:"";
-    position:absolute;
-    top:-120px;
-    right:-120px;
-    width:280px;
-    height:280px;
-    background:radial-gradient(circle,rgba(255,107,157,0.07),transparent 70%);
-    border-radius:50%;
-    pointer-events:none;
-  }
-  .letter-card::after{
-    content:"";
-    position:absolute;
-    bottom:-80px;
-    left:-80px;
-    width:200px;
-    height:200px;
-    background:radial-gradient(circle,rgba(255,217,61,0.06),transparent 70%);
-    border-radius:50%;
-    pointer-events:none;
-  }
-
-  .letter-header{
-    text-align:center;
-    margin-bottom:28px;
-    position:relative;
-    z-index:1;
-  }
-  .letter-header h2{
-    font-family:'Playfair Display',serif;
-    font-size:clamp(20px,4.5vw,28px);
-    font-weight:700;
-    color:var(--cream);
-  }
-  .letter-header .wax-seal{
-    font-size:32px;
-    margin-top:6px;
-    display:inline-block;
-    animation:sealWobble 4s ease-in-out infinite;
-  }
-  @keyframes sealWobble{
-    0%,100%{transform:rotate(-6deg)}
-    50%{transform:rotate(6deg)}
-  }
-
-  .letter-body{
-    font-family:'Caveat',cursive;
-    font-size:clamp(19px,4.2vw,24px);
-    line-height:1.6;
-    color:var(--soft-rose);
-    min-height:180px;
-    position:relative;
-    z-index:1;
-  }
-  .letter-body .cursor{
-    display:inline-block;
-    width:2px;
-    height:1em;
-    background:var(--soft-rose);
-    margin-left:2px;
-    vertical-align:middle;
-    animation:blink 0.9s step-end infinite;
-  }
-  @keyframes blink{
-    50%{opacity:0}
-  }
-
-  .letter-sign{
-    margin-top:24px;
-    text-align:right;
-    font-family:'Caveat',cursive;
-    font-size:20px;
-    color:var(--gold);
-    position:relative;
-    z-index:1;
-  }
-
-  /* ---------- Counter Bar ---------- */
-  .counter-bar{
-    position:sticky;
-    bottom:0;
-    left:0;
-    right:0;
-    background:rgba(13,17,55,0.88);
-    backdrop-filter:blur(24px);
-    border-top:1px solid var(--glass-border);
-    padding:12px 20px;
-    display:flex;
-    justify-content:center;
-    gap:24px;
-    z-index:50;
-    flex-wrap:wrap;
-  }
-  .counter-item{
-    text-align:center;
-  }
-  .counter-item .num{
-    font-family:'Playfair Display',serif;
-    font-size:20px;
-    font-weight:700;
-    color:var(--gold);
-    display:block;
-    line-height:1;
-  }
-  .counter-item .label{
-    font-size:9px;
-    text-transform:uppercase;
-    letter-spacing:0.15em;
-    color:var(--slate);
-    margin-top:2px;
-  }
-
-  /* ---------- Music Toggle ---------- */
-  #musicToggle{
-    position:fixed;
-    right:16px;
-    bottom:72px;
-    z-index:55;
-    width:52px;
-    height:52px;
-    border-radius:50%;
-    border:1px solid var(--glass-border);
-    background:var(--glass);
-    color:var(--gold);
-    font-size:20px;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    backdrop-filter:blur(12px);
-    transition:all 0.3s ease;
-    box-shadow:0 6px 20px rgba(0,0,0,0.3);
-    touch-action:manipulation;
-    -webkit-tap-highlight-color:transparent;
-  }
-  #musicToggle:hover{
-    transform:scale(1.1);
-    border-color:var(--gold);
-    background:rgba(255,217,61,0.1);
-  }
-  #musicToggle.playing{
-    animation:musicSpin 4s linear infinite;
-    border-color:var(--rose);
-    color:var(--rose);
-  }
-  @keyframes musicSpin{
-    0%{transform:rotate(0deg)}
-    100%{transform:rotate(360deg)}
-  }
-
-  /* ---------- Shooting Star ---------- */
-  .shooting-star{
-    position:fixed;
-    width:120px;
-    height:2px;
-    background:linear-gradient(90deg,var(--gold),transparent);
-    border-radius:2px;
-    opacity:0;
-    z-index:0;
-    pointer-events:none;
-    animation:shoot 1.8s ease-out forwards;
-  }
-  @keyframes shoot{
-    0%{opacity:1;transform:translateX(0) translateY(0) rotate(-45deg)}
-    100%{opacity:0;transform:translateX(350px) translateY(350px) rotate(-45deg)}
-  }
-
-  /* ---------- Cute footer ---------- */
-  .cute-footer{
-    text-align:center;
-    padding:50px 24px 110px;
-    color:var(--slate);
-    font-size:12px;
-    letter-spacing:0.1em;
-  }
-  .cute-footer .footer-hearts{
-    font-size:20px;
-    margin-bottom:10px;
-    letter-spacing:8px;
-  }
-  .cute-footer .footer-hearts span{
-    display:inline-block;
-    animation:heartBeat 1.5s ease-in-out infinite;
-  }
-  .cute-footer .footer-hearts span:nth-child(2){animation-delay:0.2s}
-  .cute-footer .footer-hearts span:nth-child(3){animation-delay:0.4s}
-  .cute-footer .footer-hearts span:nth-child(4){animation-delay:0.6s}
-  .cute-footer .footer-hearts span:nth-child(5){animation-delay:0.8s}
-
-  @media (max-width:520px){
-    .timeline-item:nth-child(odd),.timeline-item:nth-child(even){flex-direction:column;text-align:center;}
-    .timeline-item .timeline-text{padding:18px 0 0 !important;width:100%;}
-    .timeline::before{left:20px;}
-    .timeline-dot{left:20px;}
-    .constellation-wrap{min-height:440px;}
-    .star-node{width:52px !important;height:52px !important;}
-    .star-node:nth-child(1){left:50% !important;width:64px !important;height:64px !important;}
-    .star-node:nth-child(2){left:12% !important;}
-    .star-node:nth-child(3){left:70% !important;}
-    .star-node:nth-child(4){left:2% !important;}
-    .star-node:nth-child(5){left:32% !important;}
-    .star-node:nth-child(6){left:58% !important;}
-    .star-node:nth-child(7){left:76% !important;}
-    .star-node:nth-child(8){left:16% !important;}
-    .star-node:nth-child(9){left:56% !important;}
-    .hero-names::before,.hero-names::after{display:none}
-  }
-
-  @media (prefers-reduced-motion:reduce){
-    *{animation-duration:0.001s !important;transition-duration:0.001s !important}
-  }
+/* counter + music */
+#cb{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:60;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-radius:999px;padding:8px 20px;display:flex;gap:16px;box-shadow:0 6px 20px rgba(255,79,147,.2);opacity:0;pointer-events:none;transition:opacity 1s}
+#cb.on{opacity:1}
+#cb div{text-align:center;line-height:1.1}
+#cb b{display:block;font-size:19px;color:var(--rose)}
+#cb small{font-size:10px;color:var(--soft)}
+#mt{position:fixed;right:14px;bottom:76px;z-index:60;width:50px;height:50px;border-radius:50%;border:0;background:#fff;font-size:22px;cursor:pointer;box-shadow:0 6px 18px rgba(255,79,147,.25)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important;transition-duration:.001s!important}}
 </style>
 </head>
 <body>
 
-<canvas id="starCanvas"></canvas>
-<div id="floatLayer"></div>
-
-<!-- Entrance Gate -->
 <div id="gate">
-  <div class="gate-inner">
-    <div class="gate-moon">🌙</div>
-    <h1 class="gate-title">Our Love Story</h1>
-    <p class="gate-sub">Two years of memories written in the stars.</p>
-    <p class="gate-hint">✨ Draw a heart to unlock ✨</p>
-    <div class="heart-draw-area" id="heartDrawArea">
-      <canvas id="heartDrawCanvas" width="220" height="220"></canvas>
-      <div class="draw-hint-text">
-        <span>🖊️</span>
-        <span>Draw a heart here</span>
-      </div>
-      <div class="draw-progress" id="drawProgress">Keep drawing...</div>
+  <div>
+    <div class="g1">💌</div>
+    <h1>Our Love Story</h1>
+    <p>Two years of memories, just for you.</p>
+    <div class="box">
+      <svg viewBox="0 0 100 100"><path d="M50 88C20 64 8 46 8 30 8 17 18 9 29 9c9 0 16 5 21 12 5-7 12-12 21-12 11 0 21 8 21 21 0 16-12 34-42 58z"/></svg>
+      <canvas id="draw" width="240" height="240"></canvas>
     </div>
-    <button class="gate-btn" id="skipGate">Tap here to enter 💗</button>
+    <div id="pct">trace the heart with your finger 💗</div>
+    <button class="btn" id="skip">Tap to enter 💗</button>
   </div>
 </div>
 
-<!-- Main Content -->
-<div id="mainContent">
-
-  <!-- Hero -->
+<div id="main">
   <section class="hero">
-    <div class="hero-stars">
-      <span>✨</span><span>💫</span><span></span><span>💫</span><span>✨</span>
-    </div>
-    <p class="hero-eyebrow">Celebrating</p>
-    <h1 class="hero-title"><em>2 Years</em><br>Together</h1>
-    <p class="hero-names">Rey & Ira</p>
-    <p class="hero-date" id="heroDate"></p>
-    <div class="scroll-hint">
-      <span>Scroll to explore</span>
-      <span>↓</span>
-    </div>
+    <div class="sp" style="--i:0">✨💫⭐💫✨</div>
+    <p class="lab" style="--i:1">celebrating</p>
+    <h1 style="--i:2">2 Years<br>Together</h1>
+    <p class="nm" style="--i:3">Rey &amp; Ira</p>
+    <p class="dt" id="hd" style="--i:4"></p>
+    <p class="sc" style="--i:5">scroll down, my love ↓</p>
   </section>
 
-  <!-- Cute Divider -->
-  <div class="cute-divider" id="divider1">
-    <div class="line"></div>
-    <div class="icon">💗</div>
-    <div class="line"></div>
-  </div>
-
-  <!-- Constellation Memories -->
-  <section class="constellation-section">
-    <p class="section-label">Our Constellation</p>
-    <h2 class="section-title">Click the stars to see our memories</h2>
-    <div class="constellation-wrap" id="constellationWrap"></div>
+  <section>
+    <p class="lab">our little scrapbook</p>
+    <h2>Tap a photo to see our memories</h2>
+    <div class="pol" id="pol"></div>
   </section>
 
-  <!-- Cute Divider -->
-  <div class="cute-divider" id="divider2">
-    <div class="line"></div>
-    <div class="icon">🎬</div>
-    <div class="line"></div>
-  </div>
-
-  <!-- Dedicated Video Section -->
-  <section class="video-section">
-    <p class="section-label">Our Story in Motion</p>
-    <h2 class="section-title">A moment captured forever</h2>
-    <div class="video-card">
-      <div class="video-wrapper">
-        <span class="video-badge">Our Video 💕</span>
-        <video id="mainVideo" src="https://raw.githubusercontent.com/reyrosal123/love2/main/5760f5f8-ba8f-4647-bba3-27ac43613fba.mp4" controls playsinline poster="https://raw.githubusercontent.com/reyrosal123/love2/main/0d755a5d-5f31-456e-a215-7c599673c3b0.jpg"></video>
-      </div>
-      <div class="video-caption">
-        <h3>Two Years of Us</h3>
-        <p>Every frame is a heartbeat. Every second is a memory. 🎬💗</p>
-      </div>
+  <section>
+    <p class="lab">our story in motion</p>
+    <h2>A moment captured forever</h2>
+    <div class="vc">
+      <video controls playsinline src="https://raw.githubusercontent.com/reyrosal123/love2/main/5760f5f8-ba8f-4647-bba3-27ac43613fba.mp4" poster="https://raw.githubusercontent.com/reyrosal123/love2/main/0d755a5d-5f31-456e-a215-7c599673c3b0.jpg"></video>
+      <h3>Two Years of Us 🎬</h3>
+      <p>Every frame is a heartbeat. Every second is a memory.</p>
     </div>
   </section>
 
-  <!-- Cute Divider -->
-  <div class="cute-divider" id="divider3">
-    <div class="line"></div>
-    <div class="icon">📅</div>
-    <div class="line"></div>
-  </div>
-
-  <!-- Timeline -->
-  <section class="timeline-section">
-    <p class="section-label">The Journey</p>
-    <h2 class="section-title">24 Months of Love</h2>
-    <div class="timeline" id="timeline"></div>
+  <section>
+    <p class="lab">the journey</p>
+    <h2>24 Months of Love</h2>
+    <div class="tl" id="tl"></div>
   </section>
 
-  <!-- Cute Divider -->
-  <div class="cute-divider" id="divider4">
-    <div class="line"></div>
-    <div class="icon">💌</div>
-    <div class="line"></div>
-  </div>
-
-  <!-- Love Letter -->
-  <section class="letter-section">
-    <div class="letter-card">
-      <div class="letter-header">
-        <h2>A Letter to You</h2>
-        <span class="wax-seal">💌</span>
-      </div>
-      <div class="letter-body" id="letterBody"></div>
-      <div class="letter-sign">— yours, always and forever</div>
+  <section>
+    <div class="paper" id="paper">
+      <h2>A Letter to You 💌</h2>
+      <div id="lb"></div>
+      <div class="sg">yours, always and forever 💗</div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="cute-footer">
-    <div class="footer-hearts">
-      <span>💗</span><span>💕</span><span>💖</span><span>💓</span><span>💗</span>
+  <section class="ask">
+    <p class="lab">one more thing</p>
+    <h2>Will you keep choosing me, Ira?</h2>
+    <div class="row" id="row">
+      <button class="btn" id="yes">Yes! 💗</button>
+      <button class="btn no" id="no">No</button>
     </div>
-    <p>Made with love for Ira · 2 Years and Counting</p>
-  </footer>
+    <div id="ans"></div>
+  </section>
 
+  <footer>Made with love for Ira · 2 years and counting 💕</footer>
 </div>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose">✕</button>
-  <div class="lightbox-content" id="lightboxContent"></div>
-</div>
+<div id="lbx"><button id="lx">✕</button><div id="lc"></div></div>
 
-<!-- Sticky Counter -->
-<div class="counter-bar" id="counterBar">
-  <div class="counter-item"><span class="num" id="cbDays">0</span><span class="label">Days</span></div>
-  <div class="counter-item"><span class="num" id="cbHours">0</span><span class="label">Hours</span></div>
-  <div class="counter-item"><span class="num" id="cbMins">0</span><span class="label">Minutes</span></div>
-  <div class="counter-item"><span class="num" id="cbSecs">0</span><span class="label">Seconds</span></div>
+<div id="cb">
+  <div><b id="d">0</b><small>days</small></div>
+  <div><b id="h">0</b><small>hours</small></div>
+  <div><b id="m">0</b><small>minutes</small></div>
+  <div><b id="s">0</b><small>seconds</small></div>
 </div>
-
-<!-- Music Toggle -->
-<button id="musicToggle" title="Toggle music">🎵</button>
+<button id="mt" title="Music">🎵</button>
 
 <script>
-/* =========================================================
-   CONFIG
-   ========================================================= */
-const COUPLE_NAMES = "Rey & Ira";
-const START_DATE = "2024-11-08T00:00:00";
+const $=id=>document.getElementById(id);
+const B="https://raw.githubusercontent.com/reyrosal123/love2/main/";
+const START="2024-11-08T00:00:00";
+const E=['💗','💕','💖','💓','🌸','✨','💫','🎀'];
+const PH=[
+["0d755a5d-5f31-456e-a215-7c599673c3b0.jpg","The way you smile at me 💫"],
+["49bef5b7-e49c-4bd0-9c59-4fb18fba4f30.jpg","My favorite view 🌙"],
+["b9c85371-50d8-40ae-98a4-14c30a7b0225.jpg","Us against the world ✨"],
+["bc4dab50-9dbe-45e7-ae4c-1c9815bc581f.jpg","Every moment with you 🌸"],
+["9968ebe3-120b-45a1-8c64-efd73c0ba585.jpg","You + Me = Everything 💗"],
+["5bbe96e7-b9c5-43d4-8694-fd5bfbfa3a61.jpg","My heart, always 🎀"],
+["ccddf04a-345b-4c12-92ef-71e46086db15.jpg","Two years of us 🌟"],
+["d1abf488-7661-4a94-84b0-986d53d3d567.jpg","Still falling for you 💕"],
+["d2df72d1-f0f8-408c-98da-2331bec1d63e.jpg","My forever date 🌙"],
+["ddd31e71-506e-4dff-948f-e01ba6c52f7b.jpg","Home is wherever you are 🏡"],
+["e44240ef-2b33-4b66-851c-155d4dba4977.jpg","My happy place 🌷"],
+["Screenshot%202026-07-08%20081332.png","Little moments, big love 💌"],
+["Screenshot%202026-07-08%20081400.png","Saved in my heart forever 🧸"]];
+const TL=[
+["Month 1","The beginning of something beautiful. That first spark that changed everything."],
+["Month 3","Inside jokes, late-night talks, and realizing this was so much more than I expected."],
+["Month 6","Half a year of choosing each other, every single day. You became my habit, my comfort."],
+["Month 9","Through ups and downs, we only grew closer. Every challenge made us stronger."],
+["Month 12","One year. 365 days of loving you. Our first anniversary felt like a dream."],
+["Month 15","Still discovering new reasons to fall in love. You surprise me every day."],
+["Month 18","A year and a half of being each other’s person. My favorite place is still beside you."],
+["Month 21","The countdown to two years began. Every day felt like a gift I didn’t deserve."],
+["Month 24","Two years. 730 days. One love story that keeps getting better. Happy anniversary, my love."]];
+const LETTER=`Two years.
 
-const PHOTOS = [
-  {src:"https://raw.githubusercontent.com/reyrosal123/love2/main/0d755a5d-5f31-456e-a215-7c599673c3b0.jpg", caption:"The way you smile at me 💫"},
-  {src:"https://raw.githubusercontent.com/reyrosal123/love2/main/49bef5b7-e49c-4bd0-9c59-4fb18fba4f30.jpg", caption:"My favorite view 🌙"},
-  {src:"https://raw.githubusercontent.com/reyrosal123/love2/main/b9c85371-50d8-40ae-98a4-14c30a7b0225.jpg", caption:"Us against the world ✨"},
-  {src:"https://raw.githubusercontent.com/reyrosal123/love2/main/bc4dab50-9dbe-45e7-ae4c-1c9815bc581f.jpg", caption:"Every moment with you 🌸"},
-  {src:"https://raw.githubusercontent.com/reyrosal123/love2/main/9968ebe3-120b-45a1-8c64-efd73c0ba585.jpg", caption:"You + Me = Everything 💗"},
-  {src:"https://raw.githubusercontent.com/reyrosal123/love2/main/5bbe96e7-b9c5-43d4-8694-fd5bfbfa3a61.jpg", caption:"My heart, always 🎀"},
-  {src:"https://raw.githubusercontent.com/reyrosal123/love2/main/ccddf04a-345b-4c12-92ef-71e46086db15.jpg", caption:"Two years of us 🌟"},
-  {src:"https://raw.githubusercontent.com/reyrosal123/love2/main/d1abf488-7661-4a94-84b0-986d53d3d567.jpg", caption:"Still falling for you 💕"},
-  {src:"https://raw.githubusercontent.com/reyrosal123/love2/main/d2df72d1-f0f8-408c-98da-2331bec1d63e.jpg", caption:"My forever date 🌙"}
-];
+It doesn’t feel real to say that sometimes — and then other times, it feels like I’ve known you forever. Like every moment before you was just waiting.
 
-const TIMELINE_DATA = [
-  {month:"Month 1", desc:"The beginning of something beautiful. That first spark that changed everything."},
-  {month:"Month 3", desc:"Inside jokes, late-night talks, and realizing this was so much more than I expected."},
-  {month:"Month 6", desc:"Half a year of choosing each other, every single day. You became my habit, my comfort."},
-  {month:"Month 9", desc:"Through ups and downs, we only grew closer. Every challenge made us stronger."},
-  {month:"Month 12", desc:"One year. 365 days of loving you. Our first anniversary felt like a dream."},
-  {month:"Month 15", desc:"Still discovering new reasons to fall in love. You surprise me every day."},
-  {month:"Month 18", desc:"A year and a half of being each other's person. My favorite place is still beside you."},
-  {month:"Month 21", desc:"The countdown to two years began. Every day felt like a gift I didn't deserve."},
-  {month:"Month 24", desc:"Two years. 730 days. One love story that keeps getting better. Happy anniversary, my love."}
-];
+I remember the first time I realized this was different. Not the butterflies or the excitement — those were obvious. I mean the quiet moment when I thought, “Oh. It’s you. It’s always been you.”
 
-const LETTER_TEXT = "Two years.\n\nIt doesn't feel real to say that sometimes — and then other times, it feels like I've known you forever. Like every moment before you was just waiting.\n\nI remember the first time I realized this was different. Not the butterflies or the excitement — those were obvious. I mean the quiet moment when I thought, \"Oh. It's you. It's always been you.\"\n\nYou've seen me at my best and my worst. You've laughed with me until we couldn't breathe. You've held me through the hard days. You've made ordinary moments feel like magic.\n\nTwo years of good morning texts and goodnight calls. Two years of \"I miss you\" and \"I love you.\" Two years of building something that feels like home.\n\nI don't know what the future holds, but I know I want you in it. Every version of it. Every chapter. Every plot twist. Every happy ending.\n\nThank you for two years of being mine. Here's to forever.";
+You’ve seen me at my best and my worst. You’ve laughed with me until we couldn’t breathe. You’ve held me through the hard days. You’ve made ordinary moments feel like magic.
 
-/* =========================================================
-   STARFIELD BACKGROUND
-   ========================================================= */
-const canvas = document.getElementById('starCanvas');
-const ctx = canvas.getContext('2d');
-let stars = [];
-let w, h;
+Two years of good morning texts and goodnight calls. Two years of “I miss you” and “I love you.” Two years of building something that feels like home.
 
-function resizeCanvas(){
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+I don’t know what the future holds, but I know I want you in it. Every version of it. Every chapter. Every plot twist. Every happy ending.
 
-function initStars(){
-  stars = [];
-  const count = Math.floor((w * h) / 4500);
-  for(let i = 0; i < count; i++){
-    stars.push({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      r: Math.random() * 1.8 + 0.2,
-      alpha: Math.random(),
-      speed: Math.random() * 0.018 + 0.004,
-      twinkleDir: Math.random() > 0.5 ? 1 : -1
-    });
-  }
-}
-initStars();
+Thank you for two years of being mine. Here’s to forever.`;
 
-function drawStars(){
-  ctx.clearRect(0, 0, w, h);
-  stars.forEach(s => {
-    s.alpha += s.speed * s.twinkleDir;
-    if(s.alpha > 1 || s.alpha < 0.15) s.twinkleDir *= -1;
-    ctx.beginPath();
-    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(255, 255, 255, ' + s.alpha + ')';
-    ctx.fill();
-  });
-  requestAnimationFrame(drawStars);
-}
-drawStars();
+/* floating hearts + tap hearts */
+function fh(){const e=document.createElement('span');e.className='fh';e.textContent=E[Math.random()*E.length|0];e.style.left=Math.random()*96+'vw';e.style.fontSize=14+Math.random()*18+'px';e.style.animationDuration=7+Math.random()*5+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),12500)}
+setInterval(fh,1000);for(let i=0;i<6;i++)setTimeout(fh,i*300);
+function burst(x,y,n){n=n||18;for(let i=0;i<n;i++){const s=document.createElement('span'),a=Math.random()*6.28,d=60+Math.random()*140;s.className='bt';s.textContent=E[Math.random()*E.length|0];s.style.cssText='left:'+x+'px;top:'+y+'px;--dx:'+Math.cos(a)*d+'px;--dy:'+(Math.sin(a)*d-60)+'px;font-size:'+(14+Math.random()*16)+'px';document.body.appendChild(s);setTimeout(()=>s.remove(),1200)}}
+document.addEventListener('pointerdown',e=>{if(!e.target.closest('#draw'))burst(e.clientX,e.clientY,5)});
 
-// Shooting stars
-function spawnShootingStar(){
-  const star = document.createElement('div');
-  star.className = 'shooting-star';
-  star.style.left = Math.random() * w * 0.6 + 'px';
-  star.style.top = Math.random() * h * 0.4 + 'px';
-  document.body.appendChild(star);
-  setTimeout(function(){ star.remove(); }, 2000);
-}
-setInterval(function(){
-  if(Math.random() > 0.55) spawnShootingStar();
-}, 5000);
-
-/* =========================================================
-   FLOATING HEARTS BACKGROUND
-   ========================================================= */
-const floatLayer = document.getElementById('floatLayer');
-const heartEmojis = ['💗','💕','💖','💓','🌸','✨','💫'];
-function spawnFloatHeart(){
-  const el = document.createElement('div');
-  el.className = 'floatHeart';
-  el.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
-  el.style.left = Math.random() * 100 + 'vw';
-  el.style.fontSize = (14 + Math.random() * 18) + 'px';
-  el.style.animationDuration = (7 + Math.random() * 6) + 's';
-  el.style.animationDelay = Math.random() * 2 + 's';
-  floatLayer.appendChild(el);
-  setTimeout(function(){ el.remove(); }, 16000);
-}
-setInterval(spawnFloatHeart, 1200);
-for(let i = 0; i < 8; i++) spawnFloatHeart();
-
-/* =========================================================
-   MOUSE TRAIL SPARKLES
-   ========================================================= */
-const sparkleEmojis = ['✨','💫','🌟','💗','💖'];
-let lastTrail = 0;
-document.addEventListener('mousemove', function(e){
-  const now = Date.now();
-  if(now - lastTrail < 60) return;
-  lastTrail = now;
-  const s = document.createElement('div');
-  s.className = 'trailSparkle';
-  s.textContent = sparkleEmojis[Math.floor(Math.random() * sparkleEmojis.length)];
-  s.style.left = e.clientX + 'px';
-  s.style.top = e.clientY + 'px';
-  s.style.fontSize = (10 + Math.random() * 10) + 'px';
-  document.body.appendChild(s);
-  setTimeout(function(){ s.remove(); }, 900);
-});
-
-/* =========================================================
-   ENTRANCE GATE — Draw a Heart (FIXED)
-   ========================================================= */
-const drawArea = document.getElementById('heartDrawArea');
-const drawCanvas = document.getElementById('heartDrawCanvas');
-const dCtx = drawCanvas.getContext('2d');
-const gate = document.getElementById('gate');
-const mainContent = document.getElementById('mainContent');
-const drawProgress = document.getElementById('drawProgress');
-let drawing = false;
-let points = [];
-
-function getPos(e){
-  const rect = drawCanvas.getBoundingClientRect();
-  const clientX = e.touches && e.touches.length > 0 ? e.touches[0].clientX : e.clientX;
-  const clientY = e.touches && e.touches.length > 0 ? e.touches[0].clientY : e.clientY;
-  return {x: clientX - rect.left, y: clientY - rect.top};
-}
-
-function startDrawing(e){
-  e.preventDefault();
-  drawing = true;
-  points = [getPos(e)];
-  drawArea.classList.add('drawing');
-}
-
-function moveDrawing(e){
-  if(!drawing) return;
-  e.preventDefault();
-  const p = getPos(e);
-  points.push(p);
-  if(points.length < 2) return;
-
-  dCtx.beginPath();
-  dCtx.moveTo(points[points.length-2].x, points[points.length-2].y);
-  dCtx.lineTo(p.x, p.y);
-  dCtx.strokeStyle = '#ff6b9d';
-  dCtx.lineWidth = 3;
-  dCtx.lineCap = 'round';
-  dCtx.shadowColor = '#ff6b9d';
-  dCtx.shadowBlur = 10;
-  dCtx.stroke();
-  dCtx.shadowBlur = 0;
-
-  // Update progress text
-  if(points.length < 10){
-    drawProgress.textContent = 'Keep drawing...';
-  } else if(points.length < 18){
-    drawProgress.textContent = 'Almost there...';
-  } else {
-    drawProgress.textContent = 'Just a little more!';
-  }
-
-  checkHeartShape();
-}
-
-function endDrawing(){
-  drawing = false;
-  drawArea.classList.remove('drawing');
-  points = [];
-}
-
-// Mouse events
-drawArea.addEventListener('mousedown', startDrawing);
-window.addEventListener('mousemove', moveDrawing);
-window.addEventListener('mouseup', endDrawing);
-
-// Touch events
-drawArea.addEventListener('touchstart', startDrawing, {passive:false});
-window.addEventListener('touchmove', moveDrawing, {passive:false});
-window.addEventListener('touchend', endDrawing);
-
-let gateOpened = false;
-function checkHeartShape(){
-  if(gateOpened) return;
-  // Lowered threshold: 18 points is enough for a heart
-  if(points.length >= 18){
-    gateOpened = true;
-    drawProgress.textContent = 'Heart unlocked! 💗';
-    setTimeout(openGate, 300);
-  }
-}
+/* gate: trace the heart */
+const cv=$('draw'),cx=cv.getContext('2d');
+cx.strokeStyle='#ff4f93';cx.lineWidth=5;cx.lineCap='round';cx.shadowColor='#ff7eb6';cx.shadowBlur=8;
+let dr=false,last,len=0,done=false;
+function pos(e){const r=cv.getBoundingClientRect();return{x:(e.clientX-r.left)*240/r.width,y:(e.clientY-r.top)*240/r.height}}
+cv.onpointerdown=e=>{dr=true;last=pos(e);cv.setPointerCapture(e.pointerId)};
+cv.onpointermove=e=>{
+  if(!dr||done)return;
+  const p=pos(e);cx.beginPath();cx.moveTo(last.x,last.y);cx.lineTo(p.x,p.y);cx.stroke();
+  len+=Math.hypot(p.x-last.x,p.y-last.y);last=p;
+  const pc=Math.min(100,Math.round(len/4.5));
+  $('pct').textContent=pc<100?'💗 '+pc+'%':'💗 unlocked!';
+  if(len>450){done=true;setTimeout(openGate,350)}
+};
+cv.onpointerup=cv.onpointercancel=()=>{dr=false};
+$('skip').onclick=openGate;
 
 function openGate(){
-  if(gate.classList.contains('hidden')) return;
-  gate.classList.add('hidden');
-  mainContent.classList.add('visible');
-  document.querySelectorAll('.hero-eyebrow, .hero-title, .hero-names, .hero-date, .scroll-hint').forEach(function(el){
-    el.classList.add('reveal');
-  });
-  startLetterTyping();
-  setTimeout(function(){
-    if(!musicPlaying) toggleMusic();
-  }, 800);
+  if($('gate').classList.contains('hide'))return;
+  $('gate').classList.add('hide');$('main').classList.add('on');$('cb').classList.add('on');
+  burst(innerWidth/2,innerHeight/2,36);
+  setTimeout(()=>{if(!playing)toggleMusic()},700);
 }
 
-// Skip button - multiple event types for reliability
-const skipBtn = document.getElementById('skipGate');
-skipBtn.addEventListener('click', function(e){
-  e.preventDefault();
-  e.stopPropagation();
-  openGate();
+/* hero date */
+const fmt={year:'numeric',month:'long',day:'numeric'};
+$('hd').textContent=new Date(START).toLocaleDateString('en-US',fmt)+' — '+new Date().toLocaleDateString('en-US',fmt);
+
+/* photos + lightbox */
+PH.forEach(p=>{
+  const f=document.createElement('figure');
+  f.innerHTML='<img loading="lazy" src="'+B+p[0]+'" alt=""><figcaption>'+p[1]+'</figcaption>';
+  f.onclick=()=>{$('lc').innerHTML='<img src="'+B+p[0]+'" alt=""><p>'+p[1]+'</p>';$('lbx').classList.add('show')};
+  $('pol').appendChild(f);
 });
-skipBtn.addEventListener('touchend', function(e){
-  e.preventDefault();
-  e.stopPropagation();
-  openGate();
-});
+const closeLb=()=>{$('lbx').classList.remove('show');$('lc').innerHTML=''};
+$('lx').onclick=closeLb;
+$('lbx').onclick=e=>{if(e.target===$('lbx'))closeLb()};
 
-/* =========================================================
-   HERO DATE
-   ========================================================= */
-const startD = new Date(START_DATE);
-const endD = new Date();
-const dateOpts = {year:'numeric', month:'long', day:'numeric'};
-document.getElementById('heroDate').textContent =
-  startD.toLocaleDateString('en-US', dateOpts) + ' — ' + endD.toLocaleDateString('en-US', dateOpts);
+/* timeline */
+TL.forEach(t=>{const d=document.createElement('div');d.className='ti rv';d.innerHTML='<b>'+t[0]+'</b><span>'+t[1]+'</span>';$('tl').appendChild(d)});
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
-/* =========================================================
-   CONSTELLATION — Star Nodes
-   ========================================================= */
-const constellationWrap = document.getElementById('constellationWrap');
-
-PHOTOS.forEach(function(photo, i){
-  const node = document.createElement('div');
-  node.className = 'star-node';
-  node.innerHTML = '<img src="' + photo.src + '" alt="' + photo.caption + '" loading="lazy">';
-  node.addEventListener('click', function(){
-    openLightbox(photo.src, photo.caption);
-  });
-  constellationWrap.appendChild(node);
-});
-
-/* =========================================================
-   LIGHTBOX
-   ========================================================= */
-const lightbox = document.getElementById('lightbox');
-const lightboxContent = document.getElementById('lightboxContent');
-const lightboxClose = document.getElementById('lightboxClose');
-
-function openLightbox(src, caption){
-  lightboxContent.innerHTML = '<img src="' + src + '" alt="' + caption + '"><div class="lightbox-caption">' + caption + '</div>';
-  lightbox.classList.add('show');
+/* letter typewriter (tap the letter to finish instantly) */
+let li=0,started=false;
+function typeLetter(){
+  $('lb').innerHTML=LETTER.slice(0,li).replace(/\n/g,'<br>')+(li<LETTER.length?'<span class="cur"></span>':'');
+  if(li<LETTER.length){li++;setTimeout(typeLetter,li%2?30:45)}
 }
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting&&!started){started=true;typeLetter();o.disconnect()}},{threshold:.25}).observe($('paper'));
+$('paper').onclick=()=>{li=LETTER.length};
 
-lightboxClose.addEventListener('click', function(){
-  lightbox.classList.remove('show');
-  lightboxContent.innerHTML = '';
-});
-lightbox.addEventListener('click', function(e){
-  if(e.target === lightbox){
-    lightbox.classList.remove('show');
-    lightboxContent.innerHTML = '';
+/* the question */
+const no=$('no');
+function dodge(){no.style.transform='translate('+(Math.random()-.5)*180+'px,'+(Math.random()-.5)*110+'px)'}
+no.onpointerenter=dodge;no.onpointerdown=dodge;
+$('yes').onclick=e=>{
+  $('row').style.display='none';
+  $('ans').innerHTML='I knew it 💗<br>Happy 2nd anniversary, Ira.<br>I love you to the moon and back 🌙';
+  const r=e.target.getBoundingClientRect();
+  [0,250,500].forEach(t=>setTimeout(()=>burst(r.left+r.width/2,r.top,30),t));
+};
+
+/* counter */
+const t0=new Date(START).getTime();
+function tick(){const x=Math.max(0,Date.now()-t0);$('d').textContent=Math.floor(x/864e5);$('h').textContent=Math.floor(x%864e5/36e5);$('m').textContent=Math.floor(x%36e5/6e4);$('s').textContent=Math.floor(x%6e4/1e3)}
+tick();setInterval(tick,1000);
+
+/* music: soft music-box melody (Web Audio) */
+const MEL="E5 G5 E5 D5 C5:2 G4 E4 D4 E4 G4 A4 C5:4 G5 E5 D5 C5 D5:2 A4 G4 E4 G4 A4 C5 E5:4".split(' ').map(s=>{const a=s.split(':');return[a[0],(+a[1]||1)*.4]});
+const BASS=['C3','F2','G2','C3'];
+const hz=n=>{const s=[0,2,4,5,7,9,11]['CDEFGAB'.indexOf(n[0])];return 440*Math.pow(2,((+n[1]+1)*12+s-69)/12)};
+let ac,playing=false,nt=0,mi=0,timer;
+function tone(f,t,d,ty,v){const o=ac.createOscillator(),g=ac.createGain();o.type=ty;o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.03);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g).connect(ac.destination);o.start(t);o.stop(t+d+.05)}
+function sched(){
+  while(nt<ac.currentTime+.3){
+    const n=MEL[mi];
+    tone(hz(n[0]),nt,n[1]*.9,'sine',.12);tone(hz(n[0])*2,nt,n[1]*.6,'triangle',.03);
+    if(mi%4===0)tone(hz(BASS[(mi/4|0)%4]),nt,1.6,'triangle',.05);
+    nt+=n[1];mi=(mi+1)%MEL.length;
   }
-});
-
-/* =========================================================
-   TIMELINE
-   ========================================================= */
-const timeline = document.getElementById('timeline');
-TIMELINE_DATA.forEach(function(item){
-  const div = document.createElement('div');
-  div.className = 'timeline-item';
-  div.innerHTML =
-    '<div class="timeline-dot"></div>' +
-    '<div class="timeline-text">' +
-      '<div class="timeline-month">' + item.month + '</div>' +
-      '<div class="timeline-desc">' + item.desc + '</div>' +
-    '</div>';
-  timeline.appendChild(div);
-});
-
-// Scroll reveal
-const observer = new IntersectionObserver(function(entries){
-  entries.forEach(function(entry){
-    if(entry.isIntersecting) entry.target.classList.add('show');
-  });
-}, {threshold: 0.15});
-document.querySelectorAll('.timeline-item, .cute-divider').forEach(function(item){
-  observer.observe(item);
-});
-
-/* =========================================================
-   LOVE LETTER — Typewriter (FIXED newlines)
-   ========================================================= */
-const letterBody = document.getElementById('letterBody');
-let letterStarted = false;
-
-function startLetterTyping(){
-  if(letterStarted) return;
-  letterStarted = true;
-
-  const letterObserver = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        typeWriter();
-        letterObserver.disconnect();
-      }
-    });
-  }, {threshold: 0.25});
-  letterObserver.observe(document.querySelector('.letter-section'));
 }
-
-function typeWriter(){
-  let i = 0;
-  letterBody.innerHTML = '<span class="cursor"></span>';
-  const cursor = letterBody.querySelector('.cursor');
-
-  function type(){
-    if(i >= LETTER_TEXT.length){
-      if(cursor && cursor.parentNode) cursor.remove();
-      return;
-    }
-    const char = LETTER_TEXT.charAt(i);
-
-    // Check for newline character
-    if(char === '\n'){
-      letterBody.insertBefore(document.createElement('br'), cursor);
-    } else {
-      const span = document.createElement('span');
-      span.textContent = char;
-      span.style.opacity = '0';
-      span.style.transition = 'opacity 0.12s ease';
-      letterBody.insertBefore(span, cursor);
-      setTimeout(function(){ span.style.opacity = '1'; }, 8);
-    }
-    i++;
-    setTimeout(type, 30 + Math.random() * 20);
-  }
-
-  type();
-}
-
-/* =========================================================
-   LIVE COUNTER
-   ========================================================= */
-const startTime = new Date(START_DATE).getTime();
-function updateCounter(){
-  const now = Date.now();
-  const diff = Math.max(0, now - startTime);
-  document.getElementById('cbDays').textContent = Math.floor(diff / 86400000);
-  document.getElementById('cbHours').textContent = Math.floor((diff % 86400000) / 3600000);
-  document.getElementById('cbMins').textContent = Math.floor((diff % 3600000) / 60000);
-  document.getElementById('cbSecs').textContent = Math.floor((diff % 60000) / 1000);
-}
-updateCounter();
-setInterval(updateCounter, 1000);
-
-/* =========================================================
-   CUTE BACKGROUND MUSIC (Web Audio API)
-   ========================================================= */
-const musicBtn = document.getElementById('musicToggle');
-let audioCtx = null;
-let musicPlaying = false;
-let musicRaf = null;
-let nextNoteTime = 0;
-
-const melodyNotes = [
-  {n:'E5',d:0.4},{n:'G5',d:0.4},{n:'E5',d:0.4},{n:'D5',d:0.4},
-  {n:'C5',d:0.8},{n:'G4',d:0.4},{n:'E4',d:0.4},
-  {n:'D4',d:0.4},{n:'E4',d:0.4},{n:'G4',d:0.4},{n:'A4',d:0.4},
-  {n:'C5',d:1.6},
-  {n:'G5',d:0.4},{n:'E5',d:0.4},{n:'D5',d:0.4},{n:'C5',d:0.4},
-  {n:'D5',d:0.8},{n:'A4',d:0.4},{n:'G4',d:0.4},
-  {n:'E4',d:0.4},{n:'G4',d:0.4},{n:'A4',d:0.4},{n:'C5',d:0.4},
-  {n:'E5',d:1.6}
-];
-
-const chordProgression = [
-  ['C3','E3','G3'], ['C3','E3','G3'],
-  ['F2','A2','C3'], ['F2','A2','C3'],
-  ['G2','B2','D3'], ['G2','B2','D3'],
-  ['C3','E3','G3'], ['C3','E3','G3']
-];
-
-const noteMap = {C:0,'C#':1,D:2,'D#':3,E:4,F:5,'F#':6,G:7,'G#':8,A:9,'A#':10,B:11};
-
-function noteToFreq(note){
-  const m = note.match(/^([A-G]#?)(\d)$/);
-  if(!m) return 440;
-  const midi = (parseInt(m[2], 10) + 1) * 12 + noteMap[m[1]];
-  return 440 * Math.pow(2, (midi - 69) / 12);
-}
-
-function initAudio(){
-  if(audioCtx) return;
-  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-}
-
-function playTone(freq, startTime, duration, type, vol){
-  const osc = audioCtx.createOscillator();
-  const gain = audioCtx.createGain();
-  osc.type = type;
-  osc.frequency.value = freq;
-  gain.gain.setValueAtTime(0, startTime);
-  gain.gain.linearRampToValueAtTime(vol, startTime + 0.03);
-  gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
-  osc.connect(gain).connect(audioCtx.destination);
-  osc.start(startTime);
-  osc.stop(startTime + duration + 0.05);
-}
-
-let melodyIndex = 0;
-let chordIndex = 0;
-
-function scheduleMusic(){
-  if(!musicPlaying) return;
-  const beatDur = 0.5;
-  const now = audioCtx.currentTime;
-
-  while(nextNoteTime < now + 0.2){
-    const note = melodyNotes[melodyIndex];
-    playTone(noteToFreq(note.n), nextNoteTime, note.d * 0.9, 'sine', 0.12);
-    playTone(noteToFreq(note.n) * 2, nextNoteTime, note.d * 0.6, 'triangle', 0.03);
-    nextNoteTime += note.d;
-    melodyIndex = (melodyIndex + 1) % melodyNotes.length;
-
-    if(melodyIndex % 2 === 0){
-      const chord = chordProgression[chordIndex % chordProgression.length];
-      chord.forEach(function(n, i){
-        playTone(noteToFreq(n), nextNoteTime, beatDur * 2, 'triangle', i === 0 ? 0.04 : 0.025);
-      });
-      chordIndex++;
-    }
-  }
-
-  musicRaf = requestAnimationFrame(scheduleMusic);
-}
-
 function toggleMusic(){
-  initAudio();
-  if(audioCtx.state === 'suspended') audioCtx.resume();
-
-  if(!musicPlaying){
-    musicPlaying = true;
-    musicBtn.textContent = '⏸';
-    musicBtn.classList.add('playing');
-    nextNoteTime = audioCtx.currentTime + 0.05;
-    scheduleMusic();
-  } else {
-    musicPlaying = false;
-    musicBtn.textContent = '🎵';
-    musicBtn.classList.remove('playing');
-    if(musicRaf) cancelAnimationFrame(musicRaf);
-  }
+  ac=ac||new(window.AudioContext||window.webkitAudioContext)();
+  if(ac.state==='suspended')ac.resume();
+  playing=!playing;
+  $('mt').textContent=playing?'⏸':'🎵';
+  if(playing){nt=ac.currentTime+.05;sched();timer=setInterval(sched,100)}else clearInterval(timer);
 }
-
-musicBtn.addEventListener('click', toggleMusic);
+$('mt').onclick=toggleMusic;
 </script>
 </body>
 </html>
